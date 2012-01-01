@@ -66,5 +66,29 @@
         <servlet-name>BusyConnectorsLoadServlet</servlet-name>
         <url-pattern>/busyconnectorsload</url-pattern>
     </servlet-mapping>
+    <servlet>   
+        <servlet-name>SendTrafficLoadServlet</servlet-name>
+        <servlet-class>org.jboss.test.clusterbench.web.load.SendTrafficLoadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SendTrafficLoadServlet</servlet-name>
+        <url-pattern>/sendtrafficload</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>NativeMemoryServlet</servlet-name>
+        <servlet-class>org.jboss.test.clusterbench.web.load.NativeMemoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NativeMemoryServlet</servlet-name>
+        <url-pattern>/nativememory</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReceiveTrafficLoadServlet</servlet-name>
+        <servlet-class>org.jboss.test.clusterbench.web.load.ReceiveTrafficLoadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReceiveTrafficLoadServlet</servlet-name>
+        <url-pattern>/receivetrafficload</url-pattern>
+    </servlet-mapping>
   
 </web-app>
