@@ -10,7 +10,7 @@ public class SendTrafficLoadTest {
    private static final Logger log = Logger.getLogger(SendTrafficLoadTest.class.getName());
 
    private SendTrafficLoad sendTrafficLoad = null; 
-   
+
    @Test
    public void generate1KBRubbishTest() {
        sendTrafficLoad = new SendTrafficLoad();
@@ -18,5 +18,4 @@ public class SendTrafficLoadTest {
        assertEquals(1024,sendTrafficLoad.generateRubbish(1).length());
        assertEquals(100*1024,sendTrafficLoad.generateRubbish(100).length());
    }
-
 }
