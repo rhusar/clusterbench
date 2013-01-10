@@ -17,6 +17,12 @@ Output files:
     ./clusterbench-ee5-ear/target/clusterbench-ee5.ear
     ./clusterbench-ee6-ear/target/clusterbench-ee6.ear
 
+Furthermore, if you run:
+
+    $ mvn clean install -Pee6,ee5,linux64
+
+you will get both ```ee5``` and ```ee6``` builds and a linux64 native ```clusterbench-native/linux64/target/libMemStressNative64.so```. The same for win32 and .dll.
+
 Issues
 ------
 
