@@ -25,17 +25,4 @@ public class SendTrafficLoadTest {
        assertEquals(100*1024,sendTrafficLoad.generateRubbish(100).length());
    }
 
-   @Test
-   public void sendTrafficLoadMetricManualTest() throws HttpException, IOException {
-      String url = "http://localhost:8080/clusterbench/sendtrafficload?kilobytes="+KILOBYTES;
-      HttpClient httpClient = new HttpClient();
-      GetMethod getMethod = null;
-      httpClient.getHttpConnectionManager().getParams().setConnectionTimeout(30000);
-      getMethod = new GetMethod(url);
-      httpClient.executeMethod(getMethod);
-      String response = getMethod.getResponseBodyAsString();
-      log.log(Level.INFO,"RESPONSE:"+response);
-      int value = Integer.parseInt(response.split(";")[1]);
-      assertEquals(KILOBYTES, value);
-   }
 }
