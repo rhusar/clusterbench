@@ -22,8 +22,10 @@
 
 package org.jboss.test.clusterbench.ejb.stateful;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateful;
 import org.jboss.ejb3.annotation.Clustered;
+import org.jboss.security.annotation.SecurityDomain;
 import org.jboss.test.clusterbench.common.ejb.CommonStatefulSBImpl;
 
 /**
@@ -32,6 +34,8 @@ import org.jboss.test.clusterbench.common.ejb.CommonStatefulSBImpl;
  */
 @Stateful
 @Clustered
+@RolesAllowed("User")
+@SecurityDomain("other")
 public class RemoteStatefulSBImpl extends CommonStatefulSBImpl implements RemoteStatefulSB {
     // Inherit.
 }
