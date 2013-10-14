@@ -12,5 +12,14 @@
         <!-- Replicating entire session is the default. -->
         <replication-granularity>SESSION</replication-granularity>
     </replication-config>
-    
+
+    <!--<security-domain>other</security-domain>
+    <valve>
+        <class-name>org.jboss.web.tomcat.service.sso.ClusteredSingleSignOn</class-name>
+        <param>
+            <param-name>maxEmptyLife</param-name>
+            <param-value>900</param-value>
+        </param>
+    </valve>-->
+
 </jboss-web>
