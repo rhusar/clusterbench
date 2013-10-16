@@ -22,29 +22,6 @@
         -->
     </context-param>
 
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>All</web-resource-name>
-            <url-pattern>/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>Admin</role-name>
-            <role-name>User</role-name>
-        </auth-constraint>
-    </security-constraint>
-
-    <login-config>
-        <auth-method>BASIC</auth-method>
-        <realm-name>ApplicationRealm</realm-name>
-    </login-config>
-
-    <security-role>
-        <role-name>Admin</role-name>
-    </security-role>
-    <security-role>
-        <role-name>User</role-name>
-    </security-role>
-
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

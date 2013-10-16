@@ -20,7 +20,7 @@ public class CommonHttpSessionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
 
-        if (session.isNew()) {
+        if (session.isNew() || session.getAttribute(KEY) == null) {
             log.log(Level.INFO, "New session created: {0}", session.getId());
             session.setAttribute(KEY, new SerialBean());
         }
