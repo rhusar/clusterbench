@@ -26,4 +26,6 @@ public interface ClusterBenchConstants {
 
     public static final String READONLY = "readonly";
     public static final String INVALIDATE = "invalidate";
+    public static final String LOGOUT = "logout";
+
 }

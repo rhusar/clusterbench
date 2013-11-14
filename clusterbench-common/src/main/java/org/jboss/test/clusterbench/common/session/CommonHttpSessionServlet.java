@@ -48,6 +48,11 @@ public class CommonHttpSessionServlet extends HttpServlet {
             log.log(Level.INFO, "Invalidating: {0}", session.getId());
             session.invalidate();
         }
+
+        if (req.getParameter(ClusterBenchConstants.LOGOUT) != null) {
+            log.log(Level.INFO, "Logging out: {0}", session.getId());
+            req.logout();
+        }
     }
 
     @Override
