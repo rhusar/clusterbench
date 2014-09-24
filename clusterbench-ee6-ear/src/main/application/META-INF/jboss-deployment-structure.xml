@@ -1,0 +1,10 @@
+<jboss-deployment-structure>
+    <sub-deployment name="clusterbench-ee6-web.war">
+        <!-- You must configure the PicketLink dependency to your deployment. The dependency above is a reference to a static module
+        from JBoss EAP modules directory. -->
+        <dependencies>
+            <module name="org.picketlink"/>
+        </dependencies>
+    </sub-deployment>
+</jboss-deployment-structure>
+

@@ -12,6 +12,20 @@
         <!-- Replicating entire session is the default. -->
         <replication-granularity>SESSION</replication-granularity>
     </replication-config>
+    
+    
+    
+    <security-domain>sp</security-domain>
+    
+    <!-- leave the old one in place (clusterbench) <context-root>idp</context-root>-->
+    
+    <!-- saml based authentication -->
+<!--    <valve>
+        <class-name>org.picketlink.identity.federation.bindings.tomcat.sp.ServiceProviderAuthenticator</class-name>
+    </valve>-->
+    <valve>
+        <class-name>org.picketlink.identity.federation.bindings.tomcat.sp.ServiceProviderAuthenticator</class-name>
+    </valve>
 
     <!--<security-domain>other</security-domain>
     <valve>
