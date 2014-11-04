@@ -1,7 +1,7 @@
 <PicketLink xmlns="urn:picketlink:identity-federation:config:2.1">
   <PicketLinkSP xmlns="urn:picketlink:identity-federation:config:2.1" ServerEnvironment="tomcat" BindingType="REDIRECT">
-    <IdentityURL>${idp.url::http://localhost:8080/idp/}</IdentityURL>
-    <ServiceURL>${clusterbench.url::http://localhost:8080/clusterbench/}</ServiceURL>
+    <IdentityURL>${idp.url.clustered::http://localhost:6666/idp/}</IdentityURL>
+    <ServiceURL>${clusterbench.url.clustered::http://localhost:6666/clusterbench/}</ServiceURL>
   </PicketLinkSP>
   <Handlers xmlns="urn:picketlink:identity-federation:handler:config:2.1">
     <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2LogOutHandler" />
