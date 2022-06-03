@@ -36,7 +36,7 @@
     </scm>
 
     <modules>
-        <module>clusterbench-common</module>
+        <module>common-javax</module>
     </modules>
 
     <properties>
@@ -53,9 +53,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <modules>
-                <module>clusterbench-ee7-ear</module>
-                <module>clusterbench-ee7-web</module>
-                <module>clusterbench-ee7-ejb</module>
+                <module>ee7</module>
             </modules>
         </profile>
         <profile>
@@ -64,9 +62,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <modules>
-                <module>clusterbench-ee8-ear</module>
-                <module>clusterbench-ee8-web</module>
-                <module>clusterbench-ee8-ejb</module>
+                <module>ee8</module>
             </modules>
         </profile>
     </profiles>

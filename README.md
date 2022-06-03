@@ -21,11 +21,8 @@ It comes in 3 flavors for Java EE 6, 7 and 8:
 
 Output files:
 
-    ./clusterbench-ee8-ear/target/clusterbench-ee8.ear
-    ./clusterbench-ee7-ear/target/clusterbench-ee7.ear
-    ./clusterbench-ee6-ear/target/clusterbench-ee6.ear
-    ./clusterbench-ee6-ear-passivating/target/clusterbench-ee6-passivating.ear
-
+    ./ee8/clusterbench-ee8-ear/target/clusterbench-ee8.ear
+    ./ee7/clusterbench-ee7-ear/target/clusterbench-ee7.ear
 
 Deploying
 ---------
@@ -64,7 +61,7 @@ and follow the instructions.
 
 To deploy the Tomcat variant of clusterbench, copy the following `war` file into Tomcat installation `webapps/` directory:
 
-    $ cp ~/clusterbench-ee7-web/target/clusterbench-ee7-web-tomcat.war webapps/
+    $ cp ~/clusterbench/ee7/clusterbench-ee7-web/target/clusterbench-ee7-web-tomcat.war webapps/
 
 Note that CDI, debug, EJB, granular, JSF servlets are unsupported on Tomcat and not bundled in the `war`.
 

@@ -20,8 +20,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>clusterbench</artifactId>
         <groupId>org.jboss.test</groupId>
+        <artifactId>clusterbench-ee8-parent</artifactId>
         <version>4.0.0.Final-SNAPSHOT</version>
     </parent>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2013 Radoslav Husár
+  ~ Copyright 2018 Radoslav Husár
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -19,16 +19,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>clusterbench</artifactId>
         <groupId>org.jboss.test</groupId>
+        <artifactId>clusterbench-ee8-parent</artifactId>
         <version>4.0.0.Final-SNAPSHOT</version>
     </parent>
 
-    <artifactId>clusterbench-ee7-ejb</artifactId>
+    <artifactId>clusterbench-ee8-ejb</artifactId>
     <version>4.0.0.Final-SNAPSHOT</version>
     <packaging>ejb</packaging>
-
-    <name>${project.artifactId}</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -37,27 +35,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.test</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>clusterbench-common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <version>8.0</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.36</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -69,16 +55,11 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
-                    <excludes>
-                        <exclude>**/Forwarding*</exclude>
-                        <exclude>**/AbstractForwarding*</exclude>
-                        <exclude>**/NonTxForwarding*</exclude>
-                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
@@ -92,6 +73,10 @@
                         <clientExclude>**/**Impl.class</clientExclude>
                         <clientExclude>**/Local**.class</clientExclude>
                     </clientExcludes>
+                    <excludes>
+                        <exclude>**/org/jboss/test/clusterbench/ejb/stateful/*Forwarding*.class</exclude>
+                        <exclude>**/org/jboss/test/clusterbench/ejb/stateless/*Forwarding*.class</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
@@ -110,8 +95,8 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>javax</groupId>
-                                    <artifactId>javaee-endorsed-api</artifactId>
-                                    <version>7.0</version>
+                                    <artifactId>javaee-api</artifactId>
+                                    <version>8.0</version>
                                     <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
@@ -132,22 +117,25 @@
 
     <profiles>
         <profile>
-            <id>forwarding-ejbs</id>
+            <!-- just contains the interfaces for acting as an EJB client -->
+            <id>2clusters</id>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.10.1</version>
+                        <artifactId>maven-ejb-plugin</artifactId>
+                        <version>3.2.1</version>
                         <configuration>
-                            <source>1.7</source>
-                            <target>1.7</target>
-                            <compilerArguments>
-                                <endorseddirs>${endorsed.dir}</endorseddirs>
-                            </compilerArguments>
+                            <ejbVersion>3.2</ejbVersion>
+                            <generateClient>true</generateClient>
+                            <clientExcludes>
+                                <clientExclude>**/**Impl.class</clientExclude>
+                                <clientExclude>**/Local**.class</clientExclude>
+                            </clientExcludes>
                             <excludes>
-                                <exclude>**/RemoteStatefulSBImpl.java</exclude>
-                                <exclude>**/RemoteStatelessSBImpl.java</exclude>
+                                <!-- otherwise the local implementation is picked up first -->
+                                <exclude>**/org/jboss/test/clusterbench/ejb/stateful/RemoteStatefulSBImpl.class</exclude>
+                                <exclude>**/org/jboss/test/clusterbench/ejb/stateless/RemoteStatelessSBImpl.class</exclude>
                             </excludes>
                         </configuration>
                     </plugin>
@@ -155,4 +143,5 @@
             </build>
         </profile>
     </profiles>
+
 </project>
