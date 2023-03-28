@@ -1,5 +1,5 @@
 build:
-  uri: https://github.com/clusterbench/clusterbench.git
-  ref: main
+  uri: https://github.com/rhusar/clusterbench.git
+  ref: cookie
 deploy:
   replicas: 2

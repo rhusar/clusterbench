@@ -1,0 +1,1 @@
+/subsystem=undertow/servlet-container=default/setting=affinity-cookie:add(name=INGRESSCOOKIE)

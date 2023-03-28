@@ -218,7 +218,6 @@
                                     <goal>package</goal>
                                 </goals>
                                 <configuration>
-                                    <skip>false</skip>
                                     <feature-packs>
                                         <feature-pack>
                                             <location>org.wildfly:wildfly-galleon-pack:${version.org.wildfly}</location>
@@ -233,7 +232,14 @@
                                         <layer>ejb</layer>
                                         <layer>web-clustering</layer>
                                     </layers>
-                                    <filename>ROOT.ear</filename>
+                                    <!-- https://docs.wildfly.org/wildfly-maven-plugin/package-mojo.html#packagingScripts -->
+                                    <packaging-scripts>
+                                        <packaging-script>
+                                            <scripts>
+                                                <script>undertow.cli</script>
+                                            </scripts>
+                                        </packaging-script>
+                                    </packaging-scripts>
                                 </configuration>
                             </execution>
                             <execution>
