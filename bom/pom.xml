@@ -9,13 +9,13 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>49</version>
+        <version>50-SNAPSHOT</version>
         <relativePath />
     </parent>
 
     <groupId>org.jboss.test</groupId>
     <artifactId>clusterbench-bom</artifactId>
-    <version>13.0.1.Final-SNAPSHOT</version>
+    <version>13.0.1.CR1</version>
     <packaging>pom</packaging>
 
     <name>ClusterBench: BOM</name>
@@ -75,6 +75,13 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>jboss</id>
+            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
 
   <scm>
     <tag>12.0.1.Final</tag>
