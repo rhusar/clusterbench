@@ -10,8 +10,8 @@ COPY . .
 RUN mvn clean install -DskipTests
 
 # Runtime stage
-# TODO handle wildfly version
-FROM quay.io/wildfly/wildfly:latest
+# Referemce: https://quay.io/repository/wildfly/wildfly?tab=tags
+FROM quay.io/wildfly/wildfly:38.0.1.Final-jdk21
 
 LABEL maintainer="Radoslav Husar <radosoft@gmail.com>"
 
@@ -23,4 +23,4 @@ RUN chown jboss:jboss /opt/jboss/wildfly/standalone/deployments/clusterbench-ee1
 USER jboss
 
 # Run the standalone-ha.xml server profile by default
-CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-c", "standalone-ha.xml", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-c", "standalone-ha.xml", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-bprivate", "0.0.0.0"]
